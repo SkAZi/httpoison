@@ -20,7 +20,7 @@ defmodule HTTPoison.Mixfile do
   end
 
   defp deps do
-    [ { :hackney, github: "benoitc/hackney", tag: "1.0.1" },
+    [ { :hackney, "~> 0.13.1" },
       { :httparrot, "~> 0.3.2", only: :test },
       { :meck, "~> 0.8.2", only: :test } ]
   end
