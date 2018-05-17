@@ -84,6 +84,7 @@ defmodule HTTPoison.Base do
           {:ok, status_code, headers, client} ->
             case :hackney.body(client) do
               {:ok, body} -> response(status_code, headers, body)
+              {:error, {:closed, body}} -> response(status_code, headers, body)
               _ -> %HTTPoison.HTTPError{message: "Failed to fetch the body"}
             end
           {:ok, id} ->
